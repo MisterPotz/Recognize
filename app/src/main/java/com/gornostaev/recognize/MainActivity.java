@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
     //API_KEY находится в gradle.properties, в целях
     //безопасности этот файл был скрыт из контроля версий
     private static final String API_KEY = BuildConfig.API_KEY;
-    private TextView textView;
+    private TextView txtSomeInfo;
     //храним экземпляр, чтобы не инициализировать новые задачи
     //при повторном нажатии кнопки
     private SendRequestTask sendRequestTask = null;
@@ -155,14 +155,13 @@ public class MainActivity extends AppCompatActivity {
 
     //кнопка отправки запроса в CloudApi
     private void setBtnCloudApiRequest() {
-        textView = (TextView) findViewById(R.id.test);
-        textView.setText("");
+        txtSomeInfo = (TextView) findViewById(R.id.some_additional_info);
+        txtSomeInfo.setText("");
         Button btn_send_request = (Button) findViewById(R.id.main_btn_send_request);
         //устанавливаем слушатель, отвечающий за действия при нажатии на кнопку обработки
         btn_send_request.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO обработчик условий готовности base64 (может еще не подгрузилось)
                 //создаем запрос
                 if (sendRequestTask != null)
                     return;
@@ -196,7 +195,6 @@ public class MainActivity extends AppCompatActivity {
         mImageGetter = new ImageGetter(this);
         imgToAnalyze_base64 = null;
         containerImageLabels = null;
-        //TODO тестовый элемент. надеюсь я не забуду удалить эту чушь
         setListenerForInternet();
         updateUrlVisibility(false);
     }
@@ -238,16 +236,7 @@ public class MainActivity extends AppCompatActivity {
 
     //скрывает или показывает элементы, связанные с загрузкой картинки из ссылки
     private void updateUrlVisibility(boolean setVisible) {
-        //TODO: all children elements incapsulate in a solo linearlayout
-       /* edt_link.setVisibility(setVisible ? View.VISIBLE : View.GONE);
-        btn_link_enter.setVisibility(setVisible ? View.VISIBLE : View.GONE);
-        btn_link_clear.setVisibility(setVisible ? View.VISIBLE : View.GONE);
-        btn_link_insert.setVisibility(setVisible ? View.VISIBLE : View.GONE);*/
         url_elements_holder.setVisibility(setVisible ? View.VISIBLE : View.GONE);
-        /*if (setVisible)
-            url_elements_holder.setBackground(getDrawable(R.drawable.primary_rounded_corners));
-        else
-            url_elements_holder.setBackground(getDrawable(R.drawable.background));*/
     }
 
     //фунция для старта новой активности
@@ -393,7 +382,7 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(@NonNull Call<FullResponse> call, @NonNull Throwable t) {
-                    textView.setText("");
+                    txtSomeInfo.setText("");
                     showLoading(false);
                     t.printStackTrace();
                 }
@@ -405,7 +394,7 @@ public class MainActivity extends AppCompatActivity {
         //переводим его в наш класс и передаем этот класс в новую активность
         protected void getResponseAndSave(FullResponse fullResponse) {
             if (fullResponse == null) {
-                textView.setText(R.string.cloud_api_error);
+                txtSomeInfo.setText(R.string.cloud_api_error);
                 showLoading(false);
                 return;
             }
@@ -416,7 +405,7 @@ public class MainActivity extends AppCompatActivity {
             //создаем массив контейнеров метки и очков
             containerImageLabels =
                     new ContainerImageLabels(fullResponse);
-            textView.setText("");
+            txtSomeInfo.setText("");
             //стартуем новую активность с результатами
             showLoading(false);
             startLabelActivity(containerImageLabels);
