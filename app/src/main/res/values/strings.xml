@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Recognize</string>
+    <string name="choose_option">Выберите способ загрузки изображения</string>
+    <string name="option_url">Ссылка</string>
+    <string name="enter_url">Введите ссылку</string>
+    <string name="entter_url_enter">Вперед!</string>
+    <string name="option_file">Найти на устройстве</string>
+    <string name="loading">Загрузка...</string>
+    <string name="no_internet">Проблемы с соединением</string>
+    <string name="buffer_empty">Буффер обмена пуст</string>
+    <string name="empty_request">Пустой запрос</string>
+    <string name="picture_not_found">Изображение не найдено</string>
+    <string name="send_request">Анализировать</string>
+    <string name="labels">Метки</string>
+    <string name="scores">Очки</string>
+    <string name="cloud_api_error">Cloud API: возникла ошибка</string>
+    <string name="see_results">Результаты</string>
+</resources>

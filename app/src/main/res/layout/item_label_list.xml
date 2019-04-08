@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/LinearLayoutStyle"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:orientation="horizontal"
+    >
+
+    <TextView
+        style="@style/LabelList_ItemTextStyle"
+        android:id="@+id/labels"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:gravity="start"
+        android:text="@string/labels"
+        />
+    <TextView
+        style="@style/LabelList_ItemTextStyle"
+        android:id="@+id/scores"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="@string/scores"
+        android:gravity="center"
+        />
+</LinearLayout>

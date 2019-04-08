@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <LinearLayout
+            style="@style/LinearLayoutStyle"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="25dp"
+            android:animateLayoutChanges="true">
+
+            <TextView
+                style="@style/ItemTextStyle"
+                android:layout_marginBottom="25dp"
+                android:fontFamily="@font/roboto_light_italic"
+                android:maxWidth="350dp"
+                android:text="@string/choose_option" />
+
+            <LinearLayout style="@style/LinearLayoutStyle">
+
+                <Button
+                    android:id="@+id/main_btn_file"
+                    style="@style/ButtonStyle"
+                    android:text="@string/option_file" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/LinearLayoutStyle"
+                android:animateLayoutChanges="true">
+
+                <Button
+                    android:id="@+id/main_btn_url"
+                    style="@style/ButtonStyle"
+                    android:text="@string/option_url" />
+
+                <LinearLayout
+                    android:id="@+id/main_url_elements_holder"
+                    style="@style/LinearLayoutStyle"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:background="@drawable/primary_rounded_corners"
+                    android:visibility="gone">
+
+                    <EditText
+                        android:id="@+id/main_edt_url"
+                        style="@style/EditTextStyle"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/enter_url"
+                        android:inputType="textUri"
+                        android:lines="3"
+                        android:scrollbars="vertical"
+                        android:visibility="visible" />
+
+                    <LinearLayout
+                        style="@style/LinearLayoutStyle"
+                        android:orientation="horizontal">
+
+                        <ImageButton
+                            android:id="@+id/main_btn_uri_clear"
+                            style="@style/ButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/ic_clear_24dp"
+                            android:visibility="visible" />
+
+                        <ImageButton
+                            android:id="@+id/main_btn_uri_copy"
+                            style="@style/ButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/ic_insert_link_24dp"
+                            android:visibility="visible" />
+
+                        <Button
+                            android:id="@+id/main_btn_uri_apply"
+                            style="@style/ButtonStyle"
+                            android:text="@string/entter_url_enter"
+                            android:textStyle="italic"
+                            android:visibility="visible" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/LinearLayoutStyle"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp"
+                android:animateLayoutChanges="true">
+
+                <TextView
+                    android:id="@+id/main_txt_loading"
+                    style="@style/ItemTextStyle"
+                    android:text="@string/loading"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/main_txt_no_internet"
+                    style="@style/ItemTextStyle"
+                    android:text="@string/no_internet"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorAlarm"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/main_img_holder"
+                    style="@style/LinearLayoutStyle"
+                    android:layout_height="@dimen/image_height"
+                    android:animateLayoutChanges="true"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/main_img_input"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="25dp"
+                        android:background="@drawable/rounded_corners_image"
+                        android:cropToPadding="true"
+                        android:scaleType="centerInside"
+                        android:visibility="visible" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/LinearLayoutStyle">
+
+                <LinearLayout
+                    style="@style/LinearLayoutStyle"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/main_btn_send_request"
+                        style="@style/ButtonStyle"
+                        android:layout_weight="1"
+                        android:text="@string/send_request" />
+
+                    <Button
+                        android:id="@+id/main_btn_see_results"
+                        style="@style/ButtonStyle"
+                        android:layout_weight="1"
+                        android:text="@string/see_results"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/test"
+                    style="@style/ItemTextStyle"
+                    android:layout_margin="5dp"
+                    android:text="ТЕСТОВЫЙ ЭЛЕМЕНТ" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>
