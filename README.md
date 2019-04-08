@@ -14,8 +14,11 @@ Recognize использует следующие библиотеки:
 #НАСТРОЙКА
 Для успешной работы приложения необходимо использовать зарегестрированнный API-ключ для Cloud Vision API (https://cloud.google.com/vision/docs/how-to).
 В вашем файле build.gradle (app) в разделе defaultConfig должна быть слеюдующая строка
+
 buildConfigField("String", "API_KEY", API_KEY)
+
 В файле gradle.properties:
+
 API_KEY="INSERT_YOUR_KEY_HERE"
 
 
